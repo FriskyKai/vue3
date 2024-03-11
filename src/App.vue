@@ -1,25 +1,27 @@
 <script>
+  import User from './components/User.vue'
+  import Employee from "@/components/Employee.vue";
+
   export default {
     data() {
       return {
-        text: '',
-        words: []
+
       }
     },
     methods: {
-      cut: function () {
-        this.words = this.text.split(' ')
-      }
+      func(arg1, arg2) {
+        console.log(arg1, arg2)
+      },
+    },
+    components: {
+      User,
+      Employee
     }
   }
 </script>
 
 <template>
-  <textarea v-model="text"></textarea>
-  <button @click="cut">Разрезать</button>
-  <ul>
-    <li v-for="word in words">{{ word }}</li>
-  </ul>
+  <User @show="func"/>
 </template>
 
 <style scoped>
